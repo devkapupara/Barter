@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.forms import ValidationError
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, RegisterForm
-from .models import Item
+from .models import Item, Wishlist
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db.models import Q
@@ -39,6 +39,8 @@ def index(request):
 		if not request.user.is_anonymous:
 			context['logged_in'] = True
 			context['user'] = request.user
+			user = User.objects.filter(username=request.user)[0]
+			context['wishlist'] = Wishlist.objects.filter(user=user)
 		return render(request, "index.html", context=context)
 	else:
 		search_query = request.GET.get("search_query")

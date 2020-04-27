@@ -47,23 +47,14 @@
 			</div>
 			<div id="wishlist-items">
 				<ul class="list-group list-group-flush">
-					<li class="list-group-item">Item 1</li>
-					<li class="list-group-item">Item 2</li>
-					<li class="list-group-item">Item 3</li>
-					<li class="list-group-item">Item 4</li>
-					<li class="list-group-item">Item 5</li>
-					<li class="list-group-item">Item 6</li>
-					<li class="list-group-item">Item 7</li>
-					<li class="list-group-item">Item 8</li>
-					<li class="list-group-item">Item 1</li>
-					<li class="list-group-item">Blah</li>
-					<li class="list-group-item">Blah</li>
-					<li class="list-group-item">Blah</li>
+					{% if wishlist|length > 0 %}
+						{% for item in wishlist %}
+							<li class="list-group-item">{{ item.item.title }}</li>
+						{% endfor %}
+					{% else %}
+						<li class="list-group-item">Your cart is empty!</li>
+					{% endif %}
 				</ul>
-			</div>
-			<div class="card-body">
-				<a href="#" class="card-link">Blah</a>
-				<a href="#" class="card-link">Blah</a>
 			</div>
 		</div>
 	{% else %}

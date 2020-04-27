@@ -22,7 +22,7 @@ class Item(models.Model):
 		(AC, 'Accessories'),
 		(ST, 'College Supply')
 	]
-
+	
 	pid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 	category = models.CharField(max_length=2, choices=categories, default=BK)
 	title = models.CharField(max_length=128)
