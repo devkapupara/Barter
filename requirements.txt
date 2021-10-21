@@ -1,7 +1,7 @@
 argon2-cffi==19.2.0
 asgiref==3.2.3
 cffi==1.14.0
-Django==3.0.3
+Django==3.1.13
 Faker==4.0.3
 psycopg2-binary==2.8.4
 pycparser==2.20
